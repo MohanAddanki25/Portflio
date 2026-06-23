@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABRAJ Solutions — Health &amp; Life Insurance Guidance</title>
+<meta name="description" content="ABRAJ Solutions — Managed by Sai Teja Gandepalli. Creating Awareness. Building Trust. Protecting Futures. Helping individuals, families and businesses make informed insurance choices.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============ SKIP LINK ============ -->
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ TOAST NOTIFICATION ============ -->
+<div class="toast" id="toast" role="status" aria-live="polite">
+  <span class="toast__icon" id="toastIcon"></span>
+  <div class="toast__text">
+    <p class="toast__title" id="toastTitle">Title</p>
+    <p class="toast__message" id="toastMessage">Message</p>
+  </div>
+  <button class="toast__close" id="toastClose" aria-label="Dismiss notification">&times;</button>
+</div>
+
+<!-- ============ HEADER / NAV ============ -->
+<header class="site-header" id="siteHeader">
+  <div class="container site-header__inner">
+    <a href="#home" class="logo">ABRAJ SOLUTIONS<span class="logo__dot">.</span></a>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <ul class="main-nav__list">
+        <li><a href="#home" class="main-nav__link active-link" data-nav>Home</a></li>
+        <li><a href="#founder" class="main-nav__link" data-nav>About Us</a></li>
+        <li><a href="#health-insurance" class="main-nav__link" data-nav>Health Plans</a></li>
+        <li><a href="#life-insurance" class="main-nav__link" data-nav>Life Plans</a></li>
+        <li><a href="#education" class="main-nav__link" data-nav>Learning</a></li>
+        <li><a href="#careers" class="main-nav__link" data-nav>Careers</a></li>
+        <li><a href="#contact" class="main-nav__link" data-nav>Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <a href="#contact" class="btn btn--gold btn--sm">Free Consultation</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="home">
+    <div class="hero__grid-bg" aria-hidden="true"></div>
+    <div class="container hero__inner">
+
+      <div class="hero__content">
+        <p class="eyebrow">
+          <span class="eyebrow__dot"></span>
+          Protect Today. Secure Tomorrow.
+        </p>
+
+        <h1 class="hero__title">
+          Creating Awareness. <br>Building Trust. Protecting <span class="text-gold">Futures.</span>
+        </h1>
+
+        <p class="hero__subtitle">
+          Helping Individuals, Families &amp; Businesses make informed Health and Life Insurance decisions with transparent advisement.
+        </p>
+
+        <div class="hero__cta">
+          <a href="#contact" class="btn btn--gold btn--lg">
+            Plan Your Security
+            <svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+          <a href="#health-insurance" class="btn btn--outline btn--lg">Explore Plans</a>
+        </div>
+
+        <dl class="hero__stats">
+          <div class="hero__stat">
+            <dt class="hero__stat-value" data-count-to="4" data-suffix="+">0</dt>
+            <dd class="hero__stat-label">Years Advisor Experience</dd>
+          </div>
+          <div class="hero__stat">
+            <dt class="hero__stat-value" data-count-to="500" data-suffix="+">0</dt>
+            <dd class="hero__stat-label">Families Protected</dd>
+          </div>
+          <div class="hero__stat">
+            <dt class="hero__stat-value" data-count-to="99" data-suffix="%">0</dt>
+            <dd class="hero__stat-label">Claim Assistance Ratio</dd>
+          </div>
+          <div class="hero__stat">
+            <dt class="hero__stat-value" data-count-to="10" data-suffix="+">0</dt>
+            <dd class="hero__stat-label">Corporate Partners</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="hero__visual">
+        <div class="avatar-frame">
+          <div class="avatar-frame__corner avatar-frame__corner--tl"></div>
+          <div class="avatar-frame__corner avatar-frame__corner--tr"></div>
+          <div class="avatar-frame__corner avatar-frame__corner--bl"></div>
+          <div class="avatar-frame__corner avatar-frame__corner--br"></div>
+
+          <svg class="avatar-frame__monogram" viewBox="0 0 240 240" aria-hidden="true">
+            <circle cx="120" cy="120" r="118" stroke="currentColor" stroke-width="1" opacity="0.15"/>
+            <circle cx="120" cy="120" r="96" stroke="currentColor" stroke-width="1" opacity="0.25"/>
+            <text x="120" y="142" text-anchor="middle" font-family="'Space Grotesk', sans-serif" font-size="72" font-weight="600" fill="currentColor">AS</text>
+          </svg>
+
+          <span class="avatar-frame__badge">
+            <span class="avatar-frame__badge-dot"></span>
+            IRDAI Registered Advisory
+          </span>
+        </div>
+
+        <div class="floating-card floating-card--role">
+          <span class="floating-card__label">Our Philosophy</span>
+          <span class="floating-card__value">Client-First Framework</span>
+        </div>
+
+        <div class="floating-card floating-card--location">
+          <span class="floating-card__label">Active Region</span>
+          <span class="floating-card__value">Andhra Pradesh &amp; Telangana</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ FOUNDER INTERSECTION BANNER ============ -->
+  <section class="quote-banner">
+    <div class="container">
+      <blockquote class="quotation-card">
+        <p class="quotation-card__text">
+          "Insurance is not about selling policies. It's about helping families stay financially secure when life is uncertain."
+        </p>
+        <cite class="quotation-card__author">— ABRAJ SOLUTIONS</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ============ ABOUT FOUNDER ============ -->
+  <section class="section section--alt" id="founder">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Leadership</p>
+        <h2 class="section-title">About Our Founder</h2>
+        <p class="section-subtitle">
+          Driven by global standards of quality analysis and client financial wellness.
+        </p>
+      </div>
+
+      <div class="founder-grid">
+        <div class="founder-card">
+          <span class="founder-card__badge">Management</span>
+          <h3 class="founder-name">SAI TEJA GANDEPALLI</h3>
+          <p class="founder-role">Founder, ABRAJ Solutions</p>
+          
+          <div class="founder-bio">
+            <p>
+              With a background rooted in absolute precision, Sai Teja brings analytical discipline from the pharmaceutical sector over to the core financial framework.
+            </p>
+          </div>
+
+          <div class="founder-metrics">
+            <div class="founder-metric">
+              <span class="metric-num">4+ Years</span>
+              <span class="metric-desc">Health &amp; Life Insurance Industry experience</span>
+            </div>
+            <div class="founder-metric">
+              <span class="metric-num">3 Years</span>
+              <span class="metric-desc">Pharmaceutical Quality Assurance experience</span>
+            </div>
+            <div class="founder-metric">
+              <span class="metric-num">Sales Manager</span>
+              <span class="metric-desc">Direct corporate operations expertise</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="founder-mission">
+          <h4 class="mission-title">Our Mission Directive</h4>
+          <p class="mission-text">
+            To make financial protection straightforward and clear for everyone. We design pathways that focus on <strong>Insurance Awareness</strong> and <strong>Financial Protection</strong>, making sure you buy precisely what you need, with no hidden clauses or unexpected surprises.
+          </p>
+          <ul class="mission-list">
+            <li>✔ Clear explanations of all options</li>
+            <li>✔ Structured claim settlement assistance</li>
+            <li>✔ Regular reviews of your coverage limits</li>
+            <li>✔ Custom protection strategies for business assets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HEALTH INSURANCE ============ -->
+  <section class="section" id="health-insurance">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Medical Protection</p>
+        <h2 class="section-title">❤️ Health Insurance Solutions</h2>
+        <p class="section-subtitle">
+          Ensure premium emergency funding and cash-free medical network access during unexpected medical episodes.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">?</span>
+          </div>
+          <h3 class="expertise-card__title">Why Health Insurance?</h3>
+          <p class="expertise-card__text">Protects your hard-earned life savings from inflating healthcare prices, room charges, and sudden surgical costs.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">1</span>
+          </div>
+          <h3 class="expertise-card__title">Individual Plans</h3>
+          <p class="expertise-card__text">Fully customizable sum insured allocations suited specifically for standalone professionals and young adults.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">👪</span>
+          </div>
+          <h3 class="expertise-card__title">Family Floater Plans</h3>
+          <p class="expertise-card__text">A single, highly optimized umbrella cover sharing security across spouse, children, and parents efficiently.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">👵</span>
+          </div>
+          <h3 class="expertise-card__title">Senior Citizen Plans</h3>
+          <p class="expertise-card__text">Designed for parents aged 60+, managing pre-existing illnesses with specialized medical network pathways.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">⇪</span>
+          </div>
+          <h3 class="expertise-card__title">Top-Up Plans</h3>
+          <p class="expertise-card__text">Add substantial deductible-linked covers to your existing policy at a fraction of standard base policy premiums.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">✔</span>
+          </div>
+          <h3 class="expertise-card__title">Claim Guidance</h3>
+          <p class="expertise-card__text">Step-by-step assistance to make sure your hospital pre-authorizations and reimbursements go through smoothly.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ LIFE INSURANCE ============ -->
+  <section class="section section--alt" id="life-insurance">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Financial Legacies</p>
+        <h2 class="section-title">🛡️ Life Insurance Frameworks</h2>
+        <p class="section-subtitle">
+          Secure your dependents, create tax-exempt capital portfolios, and guarantee your children's development timelines.
+        </p>
+      </div>
+
+      <div class="expertise-grid">
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">⚖</span>
+          </div>
+          <h3 class="expertise-card__title">Term Insurance</h3>
+          <p class="expertise-card__text">Pure high-value life protection securing high financial coverages for your family at extremely affordable premiums.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">🎓</span>
+          </div>
+          <h3 class="expertise-card__title">Child Education Planning</h3>
+          <p class="expertise-card__text">Guaranteed cash payout structures aligned with your children's higher education admission milestones.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">🏝</span>
+          </div>
+          <h3 class="expertise-card__title">Retirement Planning</h3>
+          <p class="expertise-card__text">Ensures a reliable monthly income flow for life, keeping you financially independent throughout retirement.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">📈</span>
+          </div>
+          <h3 class="expertise-card__title">Wealth Creation</h3>
+          <p class="expertise-card__text">Participate in strategic market upside returns with tax-exempt insurance investment structures.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">🔒</span>
+          </div>
+          <h3 class="expertise-card__title">Income Protection</h3>
+          <p class="expertise-card__text">Guarantees alternate income flow in case of sudden physical critical impairments or disability occurrences.</p>
+        </article>
+
+        <article class="expertise-card">
+          <div class="expertise-card__icon">
+            <span class="text-gold" style="font-size:1.8rem; font-weight:bold;">💡</span>
+          </div>
+          <h3 class="expertise-card__title">Education Awareness</h3>
+          <p class="expertise-card__text">Empowering clients with step-by-step masterclasses to demystify complex premium options.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EDUCATIONAL RESOURCES (ARTICLES) ============ -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Knowledge Center</p>
+        <h2 class="section-title">Insurance Insights &amp; Articles</h2>
+        <p class="section-subtitle">
+          Empowering you with basic facts, clarifying common myths, and guiding you through insurance policies.
+        </p>
+      </div>
+
+      <div class="articles-grid">
+
+        <article class="article-card">
+          <div class="article-card__meta">Health Insurance</div>
+          <h3 class="article-card__title">Why Buy Health Insurance Early?</h3>
+          <p class="article-card__text">Lock in much lower premiums, complete waiting periods when you are healthy, and enjoy cumulative bonuses for claim-free years.</p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card__meta">Myth Busters</div>
+          <h3 class="article-card__title">Health Insurance Myths Exposed</h3>
+          <p class="article-card__text">"Only older people need coverage" and "24-hour hospitalization is always required." We explain why these assumptions are incorrect.</p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card__meta">Analysis</div>
+          <h3 class="article-card__title">Employer Cover vs Personal Cover</h3>
+          <p class="article-card__text">Corporate coverage ends when you change jobs. We highlight why a separate personal policy is crucial for reliable long-term security.</p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card__meta">Guides</div>
+          <h3 class="article-card__title">How Claim Processes Work</h3>
+          <p class="article-card__text">A clear guide on cashless approvals vs reimbursement claims, detailing exactly what paperwork you need to collect.</p>
+        </article>
+
+        <article class="article-card">
+          <div class="article-card__meta">policy terms</div>
+          <h3 class="article-card__title">Waiting Periods Decoded</h3>
+          <p class="article-card__text">An easy guide to standard pre-existing disease (PED) waiting timelines, 30-day initial rules, and specific disease clauses.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAREERS / JOIN US ============ -->
+  <section class="section section--alt" id="careers">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Join Our Mission</p>
+        <h2 class="section-title">Careers at ABRAJ Solutions</h2>
+        <p class="section-subtitle">
+          Looking for a career in Insurance? We build professional teams with structured mentoring.
+        </p>
+      </div>
+
+      <div class="careers-grid">
+        <div class="careers-content">
+          <h3 class="careers-lead-title">Become a Professional Financial Advisor</h3>
+          <p class="careers-lead-text">
+            Join a growing network dedicated to making insurance clear and accessible. We offer extensive training, helping you build a stable and meaningful advisory career.
+          </p>
+
+          <div class="career-perks">
+            <div class="perk-item">
+              <h4 class="perk-title">👥 Advisor Opportunities</h4>
+              <p class="perk-desc">Flexible working frameworks designed to help you build a professional advisory business.</p>
+            </div>
+            <div class="perk-item">
+              <h4 class="perk-title">🚀 Team Building</h4>
+              <p class="perk-desc">Opportunities to step up and lead regional advisory teams with our business support.</p>
+            </div>
+            <div class="perk-item">
+              <h4 class="perk-title">🎓 Training &amp; Mentorship</h4>
+              <p class="perk-desc">Learn direct sales management, IRDAI compliance guidelines, and claim management from our founder.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="careers-form-wrap">
+          <h3 class="careers-form-title">Join Our Team</h3>
+          <p class="careers-form-sub">Submit your details and we will schedule an orientation call with you.</p>
+
+          <form class="contact-form" id="careerForm" novalidate>
+            <div class="form-field">
+              <label for="careerName">Full Name</label>
+              <input type="text" id="careerName" placeholder="Enter your full name">
+              <span class="form-error" id="careerNameError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="careerMobile">Mobile Number</label>
+              <input type="tel" id="careerMobile" placeholder="e.g., +91 98765 43210">
+              <span class="form-error" id="careerMobileError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="careerEmail">Email Address</label>
+              <input type="email" id="careerEmail" placeholder="e.g., ramesh@gmail.com">
+              <span class="form-error" id="careerEmailError"></span>
+            </div>
+
+            <div class="form-field">
+              <label for="careerCity">City</label>
+              <input type="text" id="careerCity" placeholder="e.g., Vijayawada / Eluru">
+              <span class="form-error" id="careerCityError"></span>
+            </div>
+
+            <button type="submit" class="btn btn--gold btn--lg btn--full" id="careerSubmitBtn">
+              <span class="btn__text">Apply Now</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <p class="eyebrow">Connect</p>
+        <h2 class="section-title">Schedule A Free consultation</h2>
+        <p class="section-subtitle">
+          Let’s sit down, review your existing policies, address your concerns, and design a reliable protection plan for your family.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <!-- DIRECT CONTACT -->
+        <div class="contact-direct">
+
+          <a href="#" id="whatsappBtn" class="contact-action contact-action--whatsapp" target="_blank" rel="noopener">
+            <span class="contact-action__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.27-1.38a9.9 9.9 0 004.72 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.04c-.24.68-1.4 1.32-1.93 1.4-.5.08-1.13.11-1.82-.11-.42-.13-.96-.32-1.65-.62-2.9-1.25-4.8-4.17-4.94-4.36-.14-.2-1.18-1.57-1.18-3 0-1.42.75-2.12 1.01-2.4.27-.29.58-.36.78-.36.2 0 .39.002.56.01.18.01.42-.07.65.5.24.58.81 2 .88 2.15.07.14.12.31.02.5-.1.2-.15.31-.3.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.74 1.22 1.6 1.97 1.1.97 2.02 1.28 2.32 1.42.3.15.47.13.65-.07.17-.2.73-.85.93-1.14.2-.29.4-.24.66-.14.27.1 1.7.8 2 .94.29.15.48.22.55.34.07.13.07.74-.17 1.42z"/></svg>
+            </span>
+            <span class="contact-action__copy">
+              <span class="contact-action__label">Instant Chat on WhatsApp</span>
+              <span class="contact-action__sub">Replies within minutes</span>
+            </span>
+            <svg class="contact-action__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <a href="#" id="emailBtn" class="contact-action contact-action--email">
+            <span class="contact-action__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M3 6l9 7 9-7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="contact-action__copy">
+              <span class="contact-action__label">Send an Inquiry Email</span>
+              <span class="contact-action__sub" id="emailDisplay">saitejagandepalli8@gmail.com</span>
+            </span>
+            <svg class="contact-action__arrow" width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <div class="contact-meta">
+            <div class="contact-meta__item">
+              <span class="contact-meta__label">Main Location</span>
+              <span class="contact-meta__value">Andhra Pradesh, India</span>
+            </div>
+            <div class="contact-meta__item">
+              <span class="contact-meta__label">Consultation Standard</span>
+              <span class="contact-meta__value">Zero Advisory Fees</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- SUBMISSION FORM -->
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contactForm" novalidate>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Ramesh Kumar" autocomplete="name">
+                <span class="form-error" id="fullNameError"></span>
+              </div>
+              <div class="form-field">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="e.g. 9876543210">
+                <span class="form-error" id="mobileNumberError"></span>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-field">
+                <label for="emailAddress">Email Address</label>
+                <input type="email" id="emailAddress" name="emailAddress" placeholder="e.g. ramesh@gmail.com" autocomplete="email">
+                <span class="form-error" id="emailAddressError"></span>
+              </div>
+              <div class="form-field">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="e.g. Vijayawada">
+                <span class="form-error" id="cityError"></span>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label for="message">Specific Policy Questions (Optional)</label>
+              <textarea id="message" name="message" rows="4" placeholder="Let us know what coverage amount you are targeting, family details, or questions about claims..."></textarea>
+              <span class="form-error" id="messageError"></span>
+            </div>
+
+            <button type="submit" class="btn btn--gold btn--lg btn--full" id="submitBtn">
+              <span class="btn__text">Book Free Consultation</span>
+              <span class="btn__spinner" aria-hidden="true"></span>
+            </button>
+
+            <p class="contact-form__alt">
+              Prefer simple chat rooms? <a href="#" id="formWhatsappLink">Pre-fill details via WhatsApp</a>.
+            </p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <div class="site-footer__brand">
+      <a href="#home" class="logo">ABRAJ<span class="logo__dot">.</span></a>
+      <p class="site-footer__tagline">Creating Awareness on Health &amp; Life Insurance.</p>
+    </div>
+
+    <nav class="site-footer__nav" aria-label="Footer">
+      <a href="#home">Home</a>
+      <a href="#founder">About Us</a>
+      <a href="#health-insurance">Health plans</a>
+      <a href="#life-insurance">Life plans</a>
+      <a href="#careers">Careers</a>
+    </nav>
+
+    <p class="site-footer__copy">© <span id="currentYear">2026</span> ABRAJ SOLUTIONS. All rights reserved.</p>
+  </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="Back to top">
+  <svg width="18" height="18" viewBox="0 0 16 16" fill="none"><path d="M8 13V3M3 7l5-5 5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
