@@ -7,7 +7,7 @@
 
 const CONFIG = {
   // Configured with placeholders, change custom parameters as needed
-  whatsappNumber: "8500352030", // Keep previous WhatsApp routing number or update
+  whatsappNumber: "+918500352030", // Keep previous WhatsApp routing number or update
   whatsappDefaultMessage: "Hi, I am interested in scheduling a consultation with ABRAJ Solutions about my Insurance requirements.",
 
   // Principal Advisory Mail Address
