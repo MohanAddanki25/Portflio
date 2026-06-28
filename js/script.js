@@ -31,7 +31,7 @@ const CONFIG = {
   emailjs: {
     publicKey: "9yEUlCDQc19rrReYy",
     serviceId: "service_eiy6zkk",
-    templateId: "YOUR_EMAILJS_TEMPLATE_ID" // Please configure your actual Template ID here
+    templateId: "template_8zhyuxf" // Please configure your actual Template ID here
   },
 
   // -----------------------------------------------------------------------
