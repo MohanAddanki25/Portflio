@@ -5,30 +5,40 @@
    Primary Email: saitejagandepalli8@gmail.com
    ========================================================================= */
 
-const CONFIG = {
-  // Configured with placeholders, change custom parameters as needed
-  whatsappNumber: "8500352030", // Keep previous WhatsApp routing number or update
-  whatsappDefaultMessage: "Hi, I am interested in scheduling a consultation with ABRAJ Solutions about my Insurance requirements.",
+/* =========================================================================
+   BILLION PORTFOLIO — script.js
+   =========================================================================
+   Configured for: Sai Teja Gandepalli
+   Founder Contact updated to: +91 85003 52030
+   ========================================================================= */
 
-  // Principal Advisory Mail Address
+const CONFIG = {
+  // WhatsApp number in international format, digits only, no "+", no spaces.
+  // Updated to: 918500352030
+  whatsappNumber: "918500352030",
+  whatsappDefaultMessage: "Hi, I am interested in scheduling an insurance consultation with ABRAJ Solutions.",
+
+  // Contact email
   email: "saitejagandepalli8@gmail.com",
   emailSubject: "Inquiry - ABRAJ Solutions Protection Consultation",
   emailBody: "Hi Sai Teja,\n\nI visited the ABRAJ Solutions portal and want to review our protection options:\n\n- Scope of Requirement (Health/Life): \n- Sum Insured targets: \n- Best time to contact me: \n",
 
   // -----------------------------------------------------------------------
-  // EMAIL — EmailJS integration configuration
+  // EMAIL — EmailJS configuration
   // -----------------------------------------------------------------------
   formMode: "emailjs",
 
   emailjs: {
     publicKey: "9yEUlCDQc19rrReYy",
     serviceId: "service_eiy6zkk",
-    templateId: "template_8zhyuxf" // Maps to {{name}}, {{email}}, {{title}}, {{message}} in image_c8d020.png
+    templateId: "YOUR_EMAILJS_TEMPLATE_ID" // Please configure your actual Template ID here
   },
 
-  // Proxy Meta endpoint
+  // -----------------------------------------------------------------------
+  // WHATSAPP SECURE PROXY (Meta Cloud API Backend endpoint)
+  // -----------------------------------------------------------------------
   whatsappApi: {
-    enabled: false,
+    enabled: true,
     notifyEndpoint: "http://localhost:5000/api/whatsapp-notify"
   }
 };
@@ -41,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initCountUp();
   initDirectContactLinks();
   initContactForm();
-  initCareerForm();
   initBackToTop();
   initToastClose();
   
@@ -117,7 +126,7 @@ function initActiveNavOnScroll() {
 --------------------------------------------------------------------- */
 function initScrollReveal() {
   const targets = document.querySelectorAll(
-    ".expertise-card, .project-card, .timeline-item, .contact-action, .contact-form-wrap, .section-head, .article-card, .founder-card, .founder-mission"
+    ".expertise-card, .project-card, .timeline-item, .contact-action, .contact-form-wrap, .section-head"
   );
   targets.forEach((el) => el.classList.add("reveal"));
 
@@ -130,7 +139,7 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.1 }
+    { threshold: 0.12 }
   );
 
   targets.forEach((el) => observer.observe(el));
@@ -205,7 +214,7 @@ function initDirectContactLinks() {
 }
 
 /* ---------------------------------------------------------------------
-   Interactive Consultation Form Validation and Execution
+   Advanced validations and form management
 --------------------------------------------------------------------- */
 function initContactForm() {
   const form = document.getElementById("contactForm");
@@ -215,9 +224,8 @@ function initContactForm() {
 
   const fields = {
     fullName: { el: document.getElementById("fullName"), errorEl: document.getElementById("fullNameError") },
-    mobileNumber: { el: document.getElementById("mobileNumber"), errorEl: document.getElementById("mobileNumberError") },
     emailAddress: { el: document.getElementById("emailAddress"), errorEl: document.getElementById("emailAddressError") },
-    city: { el: document.getElementById("city"), errorEl: document.getElementById("cityError") },
+    subject: { el: document.getElementById("subject"), errorEl: document.getElementById("subjectError") },
     message: { el: document.getElementById("message"), errorEl: document.getElementById("messageError") }
   };
 
@@ -237,44 +245,47 @@ function initContactForm() {
     if (!name) {
       setError("fullName", "Please enter your name.");
       isValid = false;
+    } else if (name.length < 2) {
+      setError("fullName", "That name looks too short.");
+      isValid = false;
     } else {
       setError("fullName", "");
     }
 
-    const mobile = fields.mobileNumber.el.value.trim();
-    if (!mobile) {
-      setError("mobileNumber", "Please provide your mobile contact number.");
-      isValid = false;
-    } else if (mobile.length < 10) {
-      setError("mobileNumber", "Please enter a valid mobile number.");
-      isValid = false;
-    } else {
-      setError("mobileNumber", "");
-    }
-
     const email = fields.emailAddress.el.value.trim();
     if (!email) {
-      setError("emailAddress", "Please write your email address.");
+      setError("emailAddress", "Please write an email address.");
       isValid = false;
     } else if (!emailPattern.test(email)) {
-      setError("emailAddress", "Please enter a valid email structure.");
+      setError("emailAddress", "Please write a correct email standard.");
       isValid = false;
     } else {
       setError("emailAddress", "");
     }
 
-    const city = fields.city.el.value.trim();
-    if (!city) {
-      setError("city", "Please tell us your city.");
+    const subject = fields.subject.el.value.trim();
+    if (!subject) {
+      setError("subject", "Please specify a short subject topic.");
       isValid = false;
     } else {
-      setError("city", "");
+      setError("subject", "");
+    }
+
+    const message = fields.message.el.value.trim();
+    if (!message) {
+      setError("message", "Please share a brief message detail.");
+      isValid = false;
+    } else if (message.length < 10) {
+      setError("message", "Kindly write at least 10 letters outlining what you need.");
+      isValid = false;
+    } else {
+      setError("message", "");
     }
 
     return isValid;
   }
 
-  // Clear live validations on typing
+  // Clear errors live on input
   Object.keys(fields).forEach((key) => {
     fields[key].el.addEventListener("input", () => {
       const parent = fields[key].el.closest(".form-field");
@@ -284,14 +295,16 @@ function initContactForm() {
     });
   });
 
+  // Keep WhatsApp message synchronization up-to-date
   function syncWhatsappHandoff() {
     const name = fields.fullName.el.value.trim();
-    const city = fields.city.el.value.trim();
+    const subject = fields.subject.el.value.trim();
     const message = fields.message.el.value.trim();
 
     const composedText = [
-      name ? `Hi, I am ${name} from ${city || 'AP/Telangana'}.` : "Hi ABRAJ Solutions,",
-      message || "I would like to schedule a free Health & Life Insurance policy consultation."
+      name ? `Hi, my name is ${name}.` : "Hi,",
+      subject ? `Regarding: ${subject}.` : "",
+      message || CONFIG.whatsappDefaultMessage
     ].filter(Boolean).join(" ");
 
     formWhatsappLink.setAttribute("href", buildWhatsappUrl(composedText));
@@ -310,8 +323,8 @@ function initContactForm() {
     if (!validate()) {
       showToast({
         type: "error",
-        title: "Check fields",
-        message: "Verify the highlighted red boxes before submitting."
+        title: "Please check details",
+        message: "Verify the highlighted red boxes before pressing send."
       });
       return;
     }
@@ -319,29 +332,38 @@ function initContactForm() {
     const payload = {
       fullName: fields.fullName.el.value.trim(),
       email: fields.emailAddress.el.value.trim(),
-      // Creating unified subject for EmailJS template
-      subject: `Insurance Query — from ${fields.city.el.value.trim()} (Mobile: ${fields.mobileNumber.el.value.trim()})`,
-      message: fields.message.el.value.trim() || "Requested general Health & Life insurance review."
+      subject: fields.subject.el.value.trim(),
+      message: fields.message.el.value.trim()
     };
 
     setSubmitting(true);
-    const emailResult = await submitContactForm(payload);
+
+    const [emailResult, whatsappResult] = await Promise.allSettled([
+      submitContactForm(payload),
+      notifyOwnerViaWhatsapp(payload)
+    ]);
+
     setSubmitting(false);
 
-    if (emailResult.ok) {
+    if (emailResult.status === "fulfilled" && emailResult.value?.ok !== false) {
       showToast({
         type: "success",
-        title: "Request Received",
-        message: "Thank you. Sai Teja will review your profile and connect with you soon."
+        title: "Message delivered successfully",
+        message: "Thank you. We will review your inquiry and reply soon."
       });
       form.reset();
       syncWhatsappHandoff();
     } else {
+      console.error("Transmission error:", emailResult.reason);
       showToast({
         type: "error",
         title: "Submission failed",
-        message: "We faced an issue sending this request. Please tap 'Instant Chat on WhatsApp'!"
+        message: "We faced an issue sending this email. Please tap 'Instant Chat on WhatsApp'!"
       });
+    }
+
+    if (whatsappResult.status === "rejected") {
+      console.warn("Backend API warning (WhatsApp proxy is off or loading):", whatsappResult.reason);
     }
   });
 
@@ -352,104 +374,30 @@ function initContactForm() {
 }
 
 /* ---------------------------------------------------------------------
-   Interactive Career Application Form Validation
+   Proxy call to Secure WhatsApp Backend
 --------------------------------------------------------------------- */
-function initCareerForm() {
-  const form = document.getElementById("careerForm");
-  const submitBtn = document.getElementById("careerSubmitBtn");
-  if (!form || !submitBtn) return;
+async function notifyOwnerViaWhatsapp(payload) {
+  if (!CONFIG.whatsappApi || !CONFIG.whatsappApi.enabled) return;
 
-  const fields = {
-    careerName: { el: document.getElementById("careerName"), errorEl: document.getElementById("careerNameError") },
-    careerMobile: { el: document.getElementById("careerMobile"), errorEl: document.getElementById("careerMobileError") },
-    careerEmail: { el: document.getElementById("careerEmail"), errorEl: document.getElementById("careerEmailError") },
-    careerCity: { el: document.getElementById("careerCity"), errorEl: document.getElementById("careerCityError") }
-  };
-
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  function setError(key, message) {
-    const fieldObj = fields[key];
-    if (!fieldObj || !fieldObj.el || !fieldObj.errorEl) return;
-    fieldObj.errorEl.textContent = message;
-    fieldObj.el.closest(".form-field").classList.toggle("has-error", Boolean(message));
-  }
-
-  function validate() {
-    let isValid = true;
-
-    if (!fields.careerName.el.value.trim()) {
-      setError("careerName", "Please enter your name.");
-      isValid = false;
-    } else { setError("careerName", ""); }
-
-    const mobile = fields.careerMobile.el.value.trim();
-    if (!mobile || mobile.length < 10) {
-      setError("careerMobile", "Please enter a valid mobile number.");
-      isValid = false;
-    } else { setError("careerMobile", ""); }
-
-    const email = fields.careerEmail.el.value.trim();
-    if (!email || !emailPattern.test(email)) {
-      setError("careerEmail", "Please provide a valid email.");
-      isValid = false;
-    } else { setError("careerEmail", ""); }
-
-    if (!fields.careerCity.el.value.trim()) {
-      setError("careerCity", "Please specify your location city.");
-      isValid = false;
-    } else { setError("careerCity", ""); }
-
-    return isValid;
-  }
-
-  Object.keys(fields).forEach((key) => {
-    fields[key].el.addEventListener("input", () => {
-      const parent = fields[key].el.closest(".form-field");
-      if (parent && parent.classList.contains("has-error")) {
-        setError(key, "");
-      }
+  try {
+    const res = await fetch(CONFIG.whatsappApi.notifyEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
     });
-  });
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    if (!validate()) return;
-
-    const payload = {
-      fullName: fields.careerName.el.value.trim(),
-      email: fields.careerEmail.el.value.trim(),
-      subject: `Career Application — Advisor Program (${fields.careerCity.el.value.trim()})`,
-      message: `Applicant details:\n- Mobile: ${fields.careerMobile.el.value.trim()}\n- City: ${fields.careerCity.el.value.trim()}\n- Wants to join as advisor.`
-    };
-
-    submitBtn.classList.add("is-loading");
-    submitBtn.disabled = true;
-
-    const result = await submitContactForm(payload);
-
-    submitBtn.classList.remove("is-loading");
-    submitBtn.disabled = false;
-
-    if (result.ok) {
-      showToast({
-        type: "success",
-        title: "Application Received",
-        message: "Excellent! Your profile is saved. We will connect shortly."
-      });
-      form.reset();
-    } else {
-      showToast({
-        type: "error",
-        title: "Submission failed",
-        message: "Problem submitting application. Email us directly at saitejagandepalli8@gmail.com"
-      });
+    if (!res.ok) {
+      const errorText = await res.text().catch(() => "");
+      throw new Error(`WhatsApp API responded with status ${res.status}: ${errorText}`);
     }
-  });
+    return res.json();
+  } catch (err) {
+    throw err;
+  }
 }
 
 /* ---------------------------------------------------------------------
-   Email Transmission Wrapper
+   Email Handlers (EmailJS or Demo Fallback)
 --------------------------------------------------------------------- */
 async function submitContactForm(payload) {
   const isEmailJSConfigured = CONFIG.emailjs.templateId && !CONFIG.emailjs.templateId.includes("YOUR_");
@@ -458,22 +406,15 @@ async function submitContactForm(payload) {
   switch (actualMode) {
     case "emailjs": {
       if (typeof emailjs === "undefined") {
-        return { ok: false };
+        throw new Error("EmailJS SDK script tag missing on page.");
       }
       emailjs.init(CONFIG.emailjs.publicKey);
-      try {
-        // Formatted cleanly to match EmailJS requirements (from image_c8d020.png)
-        const res = await emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.templateId, {
-          name: payload.fullName,
-          email: payload.email,
-          title: payload.subject,
-          message: payload.message
-        });
-        return { ok: true, details: res };
-      } catch (e) {
-        console.error(e);
-        return { ok: false };
-      }
+      return emailjs.send(CONFIG.emailjs.serviceId, CONFIG.emailjs.templateId, {
+        name: payload.fullName,
+        email: payload.email,
+        title: payload.subject,
+        message: payload.message
+      }).then(res => ({ ok: true, details: res }));
     }
 
     case "demo":
